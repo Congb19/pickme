@@ -1,5 +1,5 @@
 <template>
-  <div>pick</div>
+  <h1>pick</h1>
 </template>
 
 <script>
@@ -13,6 +13,7 @@ export default {
     };
   },
   mounted() {
+    //api测试
     console.log(api.testget());
   },
   methods: {},

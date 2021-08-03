@@ -1,19 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Pick v-if="active == 'pick'" />
+    <Me v-if="active == 'me'" />
+    <van-tabbar v-model="active">
+      <van-tabbar-item name="pick" icon="home-o">Pick</van-tabbar-item>
+      <van-tabbar-item name="me" icon="friends-o">Me</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Pick from './components/Pick.vue';
+import Me from './components/Me.vue';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      active: 'pick',
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    Pick,
+    Me,
+  },
+};
 </script>
 
 <style>

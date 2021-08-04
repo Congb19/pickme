@@ -1,5 +1,8 @@
 <template>
-  <h1>pick</h1>
+  <div>
+    <h1>pick</h1>
+    <button v-on:click="click">123</button>
+  </div>
 </template>
 
 <script>
@@ -12,10 +15,20 @@ export default {
       active: 'pick',
     };
   },
-  mounted() {
-    //api测试
-    console.log(api.testget());
+  async mounted() {
+    this.getuser();
   },
-  methods: {},
+  methods: {
+    //api测试
+    async click() {
+      console.log(await api.testget());
+    },
+    async getuser() {
+      //登录
+      this.$store.dispatch('login', 123);
+      //查看当前登录的用户id
+      console.log(this.$store.state.user.uid);
+    },
+  },
 };
 </script>

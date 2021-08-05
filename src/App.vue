@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <Pick v-if="active == 'pick'" />
-    <Me v-if="active == 'me'" />
+    <router-view></router-view>
     <van-tabbar v-model="active">
-      <van-tabbar-item name="pick" icon="home-o">Pick</van-tabbar-item>
-      <van-tabbar-item name="me" icon="friends-o">Me</van-tabbar-item>
+      <van-tabbar-item name="pick" icon="home-o">
+        <router-link to="/pick">Pick</router-link>
+      </van-tabbar-item>
+      <van-tabbar-item name="me" icon="friends-o">
+        <router-link to="/me">Me</router-link>
+      </van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
 
 <script>
-import Pick from './components/Pick.vue';
-import Me from './components/Me.vue';
-
 export default {
   name: 'App',
   data() {
@@ -20,10 +20,7 @@ export default {
       active: 'pick',
     };
   },
-  components: {
-    Pick,
-    Me,
-  },
+  components: {},
 };
 </script>
 
@@ -34,6 +31,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
+  background-color: #eee;
+  height: 812px;
 }
 </style>
